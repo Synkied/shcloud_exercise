@@ -1,0 +1,15 @@
+<td>
+  {{ resource.pk }}
+</td>
+<td>
+  {{ resource.label }}
+</td>
+<td>
+  {{ resource.localization }}
+</td>
+<td>
+  {{ resource.capacity }}
+</td>
+<td data-bs-toggle="tooltip" data-bs-placement="top" title="{{ resource.creation_date|timesince }}">
+  {{ resource.creation_date }}
+</td>

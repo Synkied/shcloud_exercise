@@ -1,0 +1,52 @@
+{% load i18n %}
+
+<td>
+  {{ reservation.pk }}
+</td>
+<td>
+  {{ reservation.title }}
+</td>
+<td>
+  {{ reservation.resource }}
+</td>
+<td>
+  {{ reservation.start_date }}
+</td>
+<td>
+  {{ reservation.end_date }}
+</td>
+<td data-bs-toggle="tooltip" data-bs-placement="top" title="{{ reservation.creation_date|timesince }}">
+  {{ reservation.creation_date }}
+</td>
+<td>
+  <a href="{% url 'reservation_edit' reservation.pk %}" class="btn btn-outline-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Edit" %}">
+    <i class="bi bi-calendar-event"></i>
+  </a>
+  <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cancel-modal-{{ reservation.pk }}">
+    <i class="bi bi-calendar-x"></i>
+  </button>
+</td>
+
+<!-- Modal -->
+<div class="modal fade" id="cancel-modal-{{ reservation.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{% translate "Cancel reservation" %} {{ reservation.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% blocktranslate with reservation_title=reservation.title resource=reservation.resource.label %}
+          Do you really wish to cancel reservation {{ reservation_title }} for {{ resource }}?
+        {% endblocktranslate %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% translate "Cancel" %}</button>
+        <form method="post" action="{% url 'reservation_cancel' reservation.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary" value="Confirm">{% translate "Confirm" %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

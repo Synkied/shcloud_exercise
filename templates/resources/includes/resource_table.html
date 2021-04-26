@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{% trans "ID" %}</th>
+      <th scope="col">{% trans "Label" %}</th>
+      <th scope="col">{% trans "Localization" %}</th>
+      <th scope="col">{% trans "Capacity" %}</th>
+      <th scope="col">{% trans "Creation date" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for resource in resources %}
+        <tr>
+          {% include "resources/includes/resource.html" %}
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{% trans "ID" %}</th>
+      <th scope="col">{% trans "Title" %}</th>
+      <th scope="col">{% trans "Resource" %}</th>
+      <th scope="col">{% trans "Start date" %}</th>
+      <th scope="col">{% trans "End date" %}</th>
+      <th scope="col">{% trans "Creation date" %}</th>
+      <th scope="col">{% trans "Action" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for reservation in reservations %}
+        <tr>
+          {% include "reservations/includes/reservation.html" %}
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>

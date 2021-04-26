@@ -1,0 +1,18 @@
+{% load dashboard %}
+
+  <ul>
+  {% for resource in resources %}
+    <li>
+      {{ resource }}
+    </li>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for reservation in reservations %}
+    <li>
+      {{ reservation }}
+    </li>
+  {% endfor %}
+
+</ul>

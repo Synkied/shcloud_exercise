@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load dashboard %}
+
+{% block content %}
+<p>Latest resources registered</p>
+  {% latest_resources %}
+
+<p>Latest reservations</p>
+  {% latest_reservations %}
+{% endblock %}

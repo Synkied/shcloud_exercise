@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'reservation_creation' %}" class="btn btn-primary">
+      New reservation
+      <i class="bi bi-plus-circle"></i>
+    </a>
+  </div>
+  <div id="calendar"></div>
+
+
+  {% include 'reservations/includes/reservation_table.html' %}
+{% endblock %}
+
+{% block javascript %}
+  <script>
+
+    async function getResources() {
+      try {
+        let response = await axios.get('/api/resource')
+        let results = response.data.results
+        return results
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
+    async function getReservations() {
+      try {
+        let response = await axios.get('/api/reservation')
+        let results = response.data.results
+        return results
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', async function() {
+      let resources = await getResources()
+      let reservations = await getReservations()
+      console.log(reservations)
+
+      resources.map((resource, idx) => {
+        resource.id = idx + 1
+        resource.title = resource.label
+      })
+
+      reservations.map((reservation, idx) => {
+        reservation.id = idx
+        reservation.start = reservation.start_date
+        reservation.end = reservation.end_date
+      })
+
+
+      let event = {
+        id: 0,
+        title: 'my event',
+        start: '2021-04-26T12:48:00.000Z',
+        end: '2021-04-26T15:48:00.000Z',
+        stard_date: 'toto',
+        creator_name: 'name'
+      }
+
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'resourceTimeGridFourDay',
+        headerToolbar: {
+          left: 'prev,next',
+          center: 'title',
+          right: 'resourceTimeGridDay,resourceTimeGridFourDay'
+        },
+        views: {
+          resourceTimeGridFourDay: {
+            type: 'resourceTimeGrid',
+            duration: { days: 4 },
+            buttonText: '4 days'
+          }
+        },
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'resourceTimeGridDay',
+        resources: [...resources],
+        events: [...reservations],
+        height: 650,
+      });
+
+      var events = calendar.getEvents();
+      events.map(event => {
+        event.setResources([event.extendedProps.resource])
+      })
+      calendar.render();
+    });
+
+  </script>
+{% endblock %}
