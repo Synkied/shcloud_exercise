@@ -40,7 +40,6 @@
     document.addEventListener('DOMContentLoaded', async function() {
       let resources = await getResources()
       let reservations = await getReservations()
-      console.log(reservations)
 
       resources.map((resource, idx) => {
         resource.id = idx + 1

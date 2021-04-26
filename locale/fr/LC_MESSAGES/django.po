@@ -1,0 +1,244 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-26 20:07+0000\n"
+"PO-Revision-Date: 2021-04-26 22:12+0200\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
+
+#: api/authentication.py:33
+msgid "Invalid token header. No credentials provided."
+msgstr ""
+
+#: api/authentication.py:36
+msgid "Invalid token header. Token string should not contain spaces."
+msgstr "Jeton d'en-tête non valide. Le jeton ne doit pas contenir d'espaces."
+
+#: api/authentication.py:43
+msgid ""
+"Invalid token header. Token string should not contain invalid characters."
+msgstr ""
+"Jeton d'en-tête non valide. Le jeton ne doit pas contenir de caractères "
+"invalides."
+
+#: api/authentication.py:54
+msgid "Invalid token."
+msgstr "Jeton invalide."
+
+#: api/authentication.py:56
+msgid "Invalid token format."
+msgstr "Format de jeton invalide."
+
+#: api/authentication.py:60
+msgid "User inactive or deleted."
+msgstr "Utilisateur inactif ou supprimé."
+
+#: reservations/models.py:23 resources/models.py:91
+msgid "resource"
+msgstr "ressource"
+
+#: reservations/models.py:29
+msgid "creator"
+msgstr "créateur"
+
+#: reservations/models.py:51
+msgid "reservation"
+msgstr "réservation"
+
+#: reservations/models.py:52
+msgid "reservations"
+msgstr "réservations"
+
+#: resources/models.py:22 resources/models.py:67
+msgid "resource type"
+msgstr "type de ressource"
+
+#: resources/models.py:23
+msgid "resource types"
+msgstr "types de ressource"
+
+#: resources/models.py:54
+msgid "localization"
+msgstr "emplacement"
+
+#: resources/models.py:55
+msgid "localizations"
+msgstr "emplacements"
+
+#: resources/models.py:92
+msgid "resources"
+msgstr "ressources"
+
+#: templates/auth/login.html:4 templates/auth/login.html:7
+#: templates/auth/login.html:13 templates/auth/login.html:50
+#: templates/auth/register.html:4 templates/auth/register.html:7
+#: templates/auth/register.html:13 templates/auth/register.html:49
+msgid "Connection"
+msgstr "Connexion"
+
+#: templates/auth/login.html:17 templates/auth/register.html:17
+msgid "This account does not have the permission to view this page."
+msgstr "Ce compte n'a pas la permission d'afficher cette page."
+
+#: templates/auth/login.html:21 templates/auth/register.html:21
+msgid "Please connect to see this page."
+msgstr "Veuillez vous connecter pour afficher cette page."
+
+#: templates/auth/login.html:29 templates/auth/register.html:29
+msgid "Username and password do not match."
+msgstr "Le nom d'utilisateur et le mot de passe ne correspondent pas."
+
+#: templates/auth/login.html:39 templates/auth/register.html:39
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: templates/auth/login.html:44 templates/auth/register.html:44
+msgid "Password"
+msgstr "Mot de passe"
+
+#: templates/auth/login.html:53
+msgid "Register"
+msgstr "S'enregistrer"
+
+#: templates/auth/register.html:52
+msgid "Connection via Google"
+msgstr ""
+
+#: templates/reservations/includes/reservation.html:22
+msgid "Edit"
+msgstr "Modifier"
+
+#: templates/reservations/includes/reservation.html:35
+msgid "Cancel reservation"
+msgstr "Annuler la réservation"
+
+#: templates/reservations/includes/reservation.html:39
+#, python-format
+msgid ""
+"\n"
+"          Do you really wish to cancel reservation %(reservation_title)s for "
+"%(resource)s?\n"
+"        "
+msgstr ""
+"\n"
+"          Souhaitez-vous réellement annuler la réservation "
+"%(reservation_title)s pour la ressource %(resource)s?\n"
+"        "
+
+#: templates/reservations/includes/reservation.html:44
+msgid "Cancel"
+msgstr "Annuler"
+
+#: templates/reservations/includes/reservation.html:47
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: templates/reservations/includes/reservation_table.html:6
+#: templates/resources/includes/resource_table.html:6
+msgid "ID"
+msgstr ""
+
+#: templates/reservations/includes/reservation_table.html:7
+msgid "Title"
+msgstr "Titre"
+
+#: templates/reservations/includes/reservation_table.html:8
+msgid "Resource"
+msgstr "Ressource"
+
+#: templates/reservations/includes/reservation_table.html:9
+msgid "Start date"
+msgstr "Date de début"
+
+#: templates/reservations/includes/reservation_table.html:10
+msgid "End date"
+msgstr "Date de fin"
+
+#: templates/reservations/includes/reservation_table.html:11
+#: templates/resources/includes/resource_table.html:10
+msgid "Creation date"
+msgstr "Date de création"
+
+#: templates/reservations/includes/reservation_table.html:12
+msgid "Action"
+msgstr ""
+
+#: templates/resources/includes/resource_table.html:7
+msgid "Label"
+msgstr "Libellé"
+
+#: templates/resources/includes/resource_table.html:8
+msgid "Localization"
+msgstr "Emplacement"
+
+#: templates/resources/includes/resource_table.html:9
+msgid "Capacity"
+msgstr "Capacité"
+
+#: templates/resources/resource_list.html:8
+msgid "New resource"
+msgstr "Nouvelle ressource"
+
+#: users/admin.py:63 users/admin.py:78
+msgid "Credentials"
+msgstr "Informations de connexion"
+
+#: users/admin.py:68
+msgid "Flags"
+msgstr ""
+
+#: users/admin.py:73 users/admin.py:83
+msgid "Personal information"
+msgstr ""
+
+#: users/models.py:96
+msgid "Mr"
+msgstr ""
+
+#: users/models.py:97
+msgid "Mme"
+msgstr ""
+
+#: users/models.py:101
+msgid "email address"
+msgstr ""
+
+#: users/models.py:107
+msgid "gender"
+msgstr ""
+
+#: users/models.py:113
+msgid "fullname"
+msgstr ""
+
+#: users/models.py:118
+msgid "private api key"
+msgstr ""
+
+#: users/models.py:123
+msgid "private id"
+msgstr ""
+
+#: users/models.py:132
+msgid "admin"
+msgstr ""
+
+#: users/models.py:136
+msgid "staff"
+msgstr ""
+
+#: users/models.py:139
+msgid "Enabled"
+msgstr ""

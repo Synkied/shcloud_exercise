@@ -35,7 +35,7 @@ class ReservationViewSet(ReadOnlyModelViewSet):
     )
     pagination_class = ReservationResultsSetPagination
 
-    # @method_decorator(cache_page(60*2))
+    @method_decorator(cache_page(60*2))
     def list(self, *args, **kwargs):
         """
         Returns a list of user's reservations.
@@ -44,7 +44,6 @@ class ReservationViewSet(ReadOnlyModelViewSet):
         if not user.is_admin:
             queryset = Reservation.objects.filter(creator_id=user.pk)
             serializer = ReservationSerializer(queryset, many=True)
-            print(serializer.data)
             return Response({'results': serializer.data})
 
         return super(ReservationViewSet, self).list(*args, **kwargs)
