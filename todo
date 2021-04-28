@@ -1,0 +1,16 @@
+TODO :
+- Calendar X
+- Use API X
+- Translations X
+- Caching X
+- Unit tests X
+- Filter resources by type and location X
+- Use Oauth
+- Dockerization
+- Tornado (sockets)
+
+
+Améliorations :
+
+* Group de user
+* display des autres réservations (contenu masqué)
