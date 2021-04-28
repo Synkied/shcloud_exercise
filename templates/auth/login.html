@@ -10,50 +10,52 @@
 {% block header-connect %}{% endblock header-connect %}
 
 {% block content %}
-  <h5 class="card-title">{% trans "Connection" %}</h5>
-  {% if next %}
-    {% if user.is_authenticated %}
-      <div class="message info-message">
-        {% trans "This account does not have the permission to view this page." %}
-      </div>
-    {% else %}
-      <div class="message info-message">
-        {% trans "Please connect to see this page." %}
-      </div>
+  <div class="card-body">
+    <h5 class="card-title">{% trans "Connection" %}</h5>
+    {% if next %}
+      {% if user.is_authenticated %}
+        <div class="message info-message">
+          {% trans "This account does not have the permission to view this page." %}
+        </div>
+      {% else %}
+        <div class="message info-message">
+          {% trans "Please connect to see this page." %}
+        </div>
+      {% endif %}
+      <br />
     {% endif %}
-    <br />
-  {% endif %}
 
-  {% if form.errors %}
-    <div class="message text-danger">
-      {% trans "Username and password do not match." %}
-    </div>
-    <br />
-  {% endif %}
+    {% if form.errors %}
+      <div class="message text-danger">
+        {% trans "Username and password do not match." %}
+      </div>
+      <br />
+    {% endif %}
 
 
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <div class="input-field">
-    <i class="bi bi-emoji-laughing"></i>
-    <label for="id_username">{% trans "Username" %}</label>
-    <input class="form-control" name="username" autofocus="" required="" id="id_username" maxlength="254" type="text" />
-    </div>
-    <div class="input-field">
-    <i class="bi bi-bricks"></i>
-    <label for="id_password">{% trans "Password" %}</label>
-    <input class="form-control" name="password" required="" id="id_password" type="password" />
-    </div>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <div class="input-field">
+      <i class="bi bi-emoji-laughing"></i>
+      <label for="id_username">{% trans "Username" %}</label>
+      <input class="form-control" name="username" autofocus="" required="" id="id_username" maxlength="254" type="text" />
+      </div>
+      <div class="input-field">
+      <i class="bi bi-bricks"></i>
+      <label for="id_password">{% trans "Password" %}</label>
+      <input class="form-control" name="password" required="" id="id_password" type="password" />
+      </div>
 
-    <div class="mt-2">
-      <input type="hidden" name="next" value="{{ next }}" />
-      <button type="submit" class="btn btn-primary">{% trans "Connection" %}</button>
+      <div class="mt-2">
+        <input type="hidden" name="next" value="{{ next }}" />
+        <button type="submit" class="btn btn-primary">{% trans "Connection" %}</button>
 
-      <a href="{% url "social:begin" "google-oauth2" %}" id="oauth" class="btn btn-outline-secondary">
-        {% trans "Register" %}
-      </a>
-    </div>
-  </form>
+        <a href="{% url "social:begin" "google-oauth2" %}" id="oauth" class="btn btn-outline-secondary">
+          {% trans "Register" %}
+        </a>
+      </div>
+    </form>
+  </div>
 
 {% endblock content %}
 

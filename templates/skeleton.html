@@ -1,12 +1,15 @@
+{% load i18n %}
 {% load static %}
+{% load sass_tags %}
 
 <!DOCTYPE html>
 <html>
 <head>
   <title>Plan'heure</title>
-  <link href="{% static "css/bootstrap/bootstrap.min.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% sass_src "scss/bootstrap/bootstrap.scss" %}">
   <link rel="stylesheet" href="{% static "icons/bootstrap-icons-1.4.1/bootstrap-icons.css" %}">
   <link rel="stylesheet" href="{% static "css/fullcalendar-5.6.0/main.min.css" %}">
+  <link rel="stylesheet" href="{% sass_src "scss/front.scss" %}">
   <script src="{% static "js/bootstrap/bootstrap.min.js" %}" type="text/javascript"></script>
   <script src="{% static "js/fullcalendar-5.6.0/main.min.js" %}" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -21,14 +24,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'reservation_list' %}">Reservations</a>
+            <a class="nav-link" href="{% url 'reservation_list' %}">{% translate "Reservations" %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'resource_list' %}">Resources</a>
+            <a class="nav-link" href="{% url 'resource_list' %}">{% translate "Resources" %}</a>
           </li>
           {% if user.is_superuser %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
+            <a class="nav-link text-warning" href="{% url 'admin:index' %}">{% translate "Admin" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="/api">{% translate "API" %}</a>
           </li>
           {% endif %}
         </ul>
@@ -40,15 +46,16 @@
       </div>
     </div>
   </nav>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li>
+  <nav class="navbar navbar-breadcrumb">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
         {% block breadcrumbs %}{% endblock breadcrumbs %}
-      </li>
-    </ol>
+      </ol>
+    </nav>
   </nav>
   <div class="container">
     {% block body %}
+
       <div class="row">
         {% block layout %}{% endblock %}
       </div>

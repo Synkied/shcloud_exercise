@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,7 +46,9 @@ INSTALLED_APPS = [
     'social_django',
     'users',
     'debug_toolbar',
+    'django_filters',
     'rest_framework',
+    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -146,7 +150,11 @@ LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+)
 
 TIME_ZONE = 'UTC'
 
@@ -171,6 +179,13 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -187,8 +202,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework.filters.SearchFilter',
-        'rest_framework.filters.OrderingFilter',
+        'django_filters.rest_framework.DjangoFilterBackend',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',  # noqa
     'PAGE_SIZE': 20

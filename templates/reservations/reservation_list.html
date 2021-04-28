@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+  <li class="breadcrumb-item active" aria-current="page">
+    {% trans "Reservations" %}
+  </li>
+{% endblock breadcrumbs %}
 
 {% block content %}
-  
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a href="{% url 'reservation_creation' %}" class="btn btn-primary">
-      New reservation
-      <i class="bi bi-plus-circle"></i>
-    </a>
+  <div class="card-header">
+    {% translate "Reservations" %}
   </div>
-  <div id="calendar"></div>
+  <div class="card-body">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+      <a href="{% url 'reservation_creation' %}" class="btn btn-primary">
+        {% translate "New reservation" %}
+        <i class="bi bi-plus-circle"></i>
+      </a>
+    </div>
+    <div id="calendar"></div>
 
-
-  {% include 'reservations/includes/reservation_table.html' %}
+    {% include 'reservations/includes/reservation_table.html' %}
+  </div>
 {% endblock %}
 
 {% block javascript %}
@@ -52,16 +62,6 @@
         reservation.end = reservation.end_date
       })
 
-
-      let event = {
-        id: 0,
-        title: 'my event',
-        start: '2021-04-26T12:48:00.000Z',
-        end: '2021-04-26T15:48:00.000Z',
-        stard_date: 'toto',
-        creator_name: 'name'
-      }
-
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'resourceTimeGridFourDay',
@@ -82,6 +82,15 @@
         resources: [...resources],
         events: [...reservations],
         height: 650,
+
+        eventClick: function(info) {
+          let reservation_pk = info.event.extendedProps.pk
+          url = '{% url "reservation_detail" 888 %}'
+
+          // cheat to get to corresponding url
+          document.location.href = url.replace('888', reservation_pk);
+
+        }
       });
 
       var events = calendar.getEvents();

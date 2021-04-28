@@ -1,15 +1,27 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-  {% if user.is_superuser %}
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <a href="{% url 'admin:resources_resource_add' %}" class="btn btn-primary">
-        {% trans 'New resource' %}
-        <i class="bi bi-plus-circle"></i>
-      </a>
-    </div>
-  {% endif %}
+{% block breadcrumbs %}
+<li class="breadcrumb-item active" aria-current="page">
+  {% trans "Resources" %}
+</li>
+{% endblock breadcrumbs %}
 
-  {% include 'resources/includes/resource_table.html' %}
+
+{% block content %}
+  <div class="card-header">
+    {% translate "Resources" %}
+  </div>
+  <div class="card-body">
+    {% if user.is_superuser %}
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+        <a href="{% url 'admin:resources_resource_add' %}" class="btn btn-primary">
+          {% trans 'New resource' %}
+          <i class="bi bi-plus-circle"></i>
+        </a>
+      </div>
+    {% endif %}
+
+    {% include 'resources/includes/resource_table.html' %}
+  </div>
 {% endblock %}

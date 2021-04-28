@@ -1,5 +1,7 @@
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models import Q
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -35,6 +37,34 @@ class Reservation(models.Model):
     update_date = models.DateTimeField(
         auto_now=True,
     )
+
+    def check_overlapping_dates(self):
+        reservations = Reservation.objects.filter(
+            ~Q(pk=self.pk),
+            start_date__lte=self.end_date,
+            end_date__gte=self.start_date,
+            resource=self.resource,
+        )
+
+        if len(reservations):
+            raise ValidationError(
+                _('Overlapping dates, another reservation is already registered for this resource.')  # noqa
+            )
+
+    def check_wrong_dates(self):
+
+        if self.start_date > self.end_date:
+            raise ValidationError(
+                _('Incorrect dates.')  # noqa
+            )
+
+    def clean(self):
+        self.check_wrong_dates()
+        self.check_overlapping_dates()
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('reservation_detail', args=[self.pk])
