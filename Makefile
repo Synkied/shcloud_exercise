@@ -1,3 +1,6 @@
+all: build up create_user_db collectstatic create_cache_table migrate_db
+all_no_cache: build_no_cache up collectstatic create_user_db create_cache_table migrate_db
+
 init:
 	pip install -r requirements.txt
 
@@ -12,9 +15,6 @@ migrate_db:
 
 import_data:
 	docker exec plan_heure_web /bin/sh -c 'python manage.py import_data all'
-
-add_images:
-	docker exec plan_heure_web /bin/sh -c 'python manage.py add_images all'
 
 cov_test:
 	coverage run manage.py test
@@ -38,7 +38,7 @@ restart:
 	docker-compose restart
 
 collectstatic:
-	docker exec plan_heure_web /bin/sh -c "python manage.py collectstatic --noinput"
+	docker exec plan_heure_web /bin/sh -c "python manage.py compilescss" && docker exec plan_heure_web /bin/sh -c "python manage.py collectstatic --noinput"
 
 bash_nginx:
 	docker exec -ti plan_heure_nginx bash
@@ -48,9 +48,6 @@ bash_web:
 
 bash_db:
 	docker exec -ti plan_heure_db bash
-
-yarn_build:
-	cd frontend && yarn build
 
 freeze:
 	pip freeze > requirements.txt

@@ -6,6 +6,8 @@ RUN apt-get update
 # Install software
 RUN apt-get install -y git
 
+RUN python -m pip install pip==21.0.1
+
 COPY requirements.txt ./requirements.txt
 RUN pip install -r /requirements.txt
 
