@@ -17,10 +17,12 @@ class ReservationCreationForm(forms.ModelForm):
 
     # custom fields
     localization = forms.ModelChoiceField(
-        queryset=Localization.objects.all()
+        queryset=Localization.objects.all(),
+        required=False,
     )
     resource_type = forms.ModelChoiceField(
-        queryset=ResourceType.objects.all()
+        queryset=ResourceType.objects.all(),
+        required=False,
     )
 
     class Meta:

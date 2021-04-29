@@ -35,7 +35,7 @@
       </p>
     </h5>
     <div class="row">
-      {% for reservation in resource.reservations %}
+      {% for reservation in resource.all_reservations %}
       <div class="col-4">
         {% include 'reservations/includes/reservation_card.html' %}
       </div>

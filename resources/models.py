@@ -7,10 +7,12 @@ class ResourceType(models.Model):
     A ResourceType model.
     """
     label = models.CharField(
+        _('label'),
         max_length=64,
     )
 
     creation_date = models.DateTimeField(
+        _('creation date'),
         auto_now_add=True,
     )
 
@@ -29,20 +31,26 @@ class Localization(models.Model):
     A Localization model.
     """
     label = models.CharField(
+        _('label'),
         max_length=64,
     )
 
     latitude = models.DecimalField(
+        _('latitude'),
         max_digits=22,
         decimal_places=16,
     )
     longitude = models.DecimalField(
+        _('longitude'),
         max_digits=22,
         decimal_places=16,
     )
-    floor = models.SmallIntegerField()
+    floor = models.SmallIntegerField(
+        _('floor')
+    )
 
     creation_date = models.DateTimeField(
+        _('creation date'),
         auto_now_add=True,
     )
 
@@ -68,6 +76,7 @@ class Resource(models.Model):
     )
 
     label = models.CharField(
+        _('label'),
         max_length=64,
     )
 
@@ -75,17 +84,21 @@ class Resource(models.Model):
         Localization,
         on_delete=models.PROTECT,
         related_name='resource',
+        verbose_name=_('localization')
     )
 
-    capacity = models.PositiveSmallIntegerField()
+    capacity = models.PositiveSmallIntegerField(
+        _('capacity')
+    )
 
     creation_date = models.DateTimeField(
+        _('creation date'),
         auto_now_add=True,
     )
 
     @property
-    def reservations(self):
-        return self.reservation.all()
+    def all_reservations(self):
+        return self.reservations.all()
 
     def __str__(self):
         return '%s (%s - %s p.)' % (

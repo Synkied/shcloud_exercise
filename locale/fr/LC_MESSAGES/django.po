@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-29 18:48+0000\n"
-"PO-Revision-Date: 2021-04-29 20:49+0200\n"
+"POT-Creation-Date: 2021-04-29 19:46+0000\n"
+"PO-Revision-Date: 2021-04-29 21:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1284,15 +1284,36 @@ msgstr "Anglais"
 msgid "French"
 msgstr "Français"
 
-#: reservations/models.py:25 reservations/models.py:81
-msgid "reservation"
-msgstr "réservation"
+#: reservations/models.py:16
+msgid "title"
+msgstr "titre"
 
-#: reservations/models.py:31
+#: reservations/models.py:20
+msgid "start date"
+msgstr "date de début"
+
+#: reservations/models.py:23
+msgid "end date"
+msgstr "date de fin"
+
+#: reservations/models.py:30 resources/models.py:112
+msgid "resource"
+msgstr "ressource"
+
+#: reservations/models.py:36
 msgid "creator"
 msgstr "créateur"
 
-#: reservations/models.py:51
+#: reservations/models.py:40 resources/models.py:15 resources/models.py:53
+#: resources/models.py:95
+msgid "creation date"
+msgstr "date de création"
+
+#: reservations/models.py:44
+msgid "update date"
+msgstr "date de mise à jour"
+
+#: reservations/models.py:58
 msgid ""
 "Overlapping dates, another reservation is already registered for this "
 "resource."
@@ -1300,35 +1321,55 @@ msgstr ""
 "Dates se chevauchant, une réservation existe déjà pour cette ressource à ces "
 "horaires."
 
-#: reservations/models.py:58
+#: reservations/models.py:65
 msgid "Incorrect dates."
 msgstr "Dates incorrectes."
 
-#: reservations/models.py:82
+#: reservations/models.py:88
+msgid "reservation"
+msgstr "réservation"
+
+#: reservations/models.py:89
 msgid "reservations"
 msgstr "réservations"
 
-#: resources/models.py:22 resources/models.py:67
+#: resources/models.py:10 resources/models.py:34 resources/models.py:79
+msgid "label"
+msgstr "libellé"
+
+#: resources/models.py:24 resources/models.py:75
 msgid "resource type"
 msgstr "type de ressource"
 
-#: resources/models.py:23
+#: resources/models.py:25
 msgid "resource types"
 msgstr "types de ressource"
 
-#: resources/models.py:54
+#: resources/models.py:39
+msgid "latitude"
+msgstr "latitude"
+
+#: resources/models.py:44
+msgid "longitude"
+msgstr "longitude"
+
+#: resources/models.py:49
+msgid "floor"
+msgstr "étage"
+
+#: resources/models.py:62 resources/models.py:87
 msgid "localization"
 msgstr "emplacement"
 
-#: resources/models.py:55
+#: resources/models.py:63
 msgid "localizations"
 msgstr "emplacements"
 
-#: resources/models.py:99
-msgid "resource"
-msgstr "ressource"
+#: resources/models.py:91
+msgid "capacity"
+msgstr "capacité"
 
-#: resources/models.py:100
+#: resources/models.py:113
 msgid "resources"
 msgstr "ressources"
 
@@ -1366,17 +1407,17 @@ msgstr "S'enregistrer"
 msgid "Sign up"
 msgstr "S'enregistrer"
 
-#: templates/reservations/includes/reservation_card.html:25
+#: templates/reservations/includes/reservation_card.html:27
 #: templates/reservations/includes/reservation_line.html:31
 msgid "Edit"
 msgstr "Modifier"
 
-#: templates/reservations/includes/reservation_card.html:38
+#: templates/reservations/includes/reservation_card.html:40
 #: templates/reservations/includes/reservation_line.html:44
 msgid "Cancel reservation"
 msgstr "Annuler la réservation"
 
-#: templates/reservations/includes/reservation_card.html:42
+#: templates/reservations/includes/reservation_card.html:44
 #: templates/reservations/includes/reservation_line.html:48
 #, python-format
 msgid ""
@@ -1390,12 +1431,12 @@ msgstr ""
 "%(reservation_title)s pour la ressource %(resource)s?\n"
 "        "
 
-#: templates/reservations/includes/reservation_card.html:47
+#: templates/reservations/includes/reservation_card.html:49
 #: templates/reservations/includes/reservation_line.html:53
 msgid "Cancel"
 msgstr "Annuler"
 
-#: templates/reservations/includes/reservation_card.html:50
+#: templates/reservations/includes/reservation_card.html:52
 #: templates/reservations/includes/reservation_line.html:56
 msgid "Confirm"
 msgstr "Confirmer"
@@ -1428,6 +1469,10 @@ msgstr "Date de création"
 
 #: templates/reservations/includes/reservation_table.html:12
 msgid "Action"
+msgstr ""
+
+#: templates/reservations/reservation_create.html:38
+msgid "Submit"
 msgstr ""
 
 #: templates/reservations/reservation_detail.html:6

@@ -13,16 +13,21 @@ class Reservation(models.Model):
     A Reservation model.
     """
     title = models.CharField(
+        _('title'),
         max_length=256,
     )
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+    start_date = models.DateTimeField(
+        _('start date')
+    )
+    end_date = models.DateTimeField(
+        _('end date')
+    )
 
     resource = models.ForeignKey(
         Resource,
         on_delete=models.PROTECT,
-        related_name='reservation',
-        verbose_name=_('reservation')
+        related_name='reservations',
+        verbose_name=_('resource')
     )
 
     creator = models.ForeignKey(
@@ -32,9 +37,11 @@ class Reservation(models.Model):
     )
 
     creation_date = models.DateTimeField(
+        _('creation date'),
         auto_now_add=True,
     )
     update_date = models.DateTimeField(
+        _('update date'),
         auto_now=True,
     )
 

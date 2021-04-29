@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
   <div class="card-body">
@@ -34,7 +35,7 @@
       {% endfor %}
         </div>
       <br>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">{% translate 'Submit' %}</button>
     </form>
   </div>
 {% endblock content %}
@@ -92,6 +93,7 @@
         defaultOption
       ]
       for (var i = resources.length - 1; i >= 0; i--) {
+        console.log(resources[i])
         let newOptionsHtml = `<option value=${resources[i].pk}>${resources[i].label}</option>`
         newOptions.push(newOptionsHtml)
       }

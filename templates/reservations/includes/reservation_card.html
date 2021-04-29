@@ -2,8 +2,10 @@
 {% load tz %}
 
   <div class="card-header">
-    <i class="bi bi-calendar-check"></i>
-    {{ reservation.title }}
+    <a class="link-secondary" href="{% url 'reservation_detail' reservation.pk %}">
+      <i class="bi bi-calendar-check"></i>
+      {{ reservation.title }}
+    </a>
   </div>
   <div class="card-body">
     <h5 class="card-title">
