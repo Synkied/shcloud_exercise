@@ -12,6 +12,7 @@ TODO :
 
 Améliorations :
 
-* Group de user
-* display des autres réservations (contenu masqué)
+* Groupes d'utilisateurs
+* display des réservations des autres utilisateurs (contenu masqué)
 * réservation direct sur calendrier (form AJAX)
+* non-blocking UI pour le calendrier

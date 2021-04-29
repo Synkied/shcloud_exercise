@@ -66,6 +66,7 @@
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'resourceTimeGridTwoDay',
+        timeZone: 'UTC',
         headerToolbar: {
           left: 'prev,next',
           center: 'title',
@@ -83,7 +84,6 @@
         resources: [...resources],
         events: [...reservations],
         height: 650,
-
         eventClick: function(info) {
           let reservation_pk = info.event.extendedProps.pk
           url = '{% url "reservation_detail" 888 %}'
