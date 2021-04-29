@@ -63,7 +63,7 @@ class Resource(models.Model):
     resource_type = models.ForeignKey(
         ResourceType,
         on_delete=models.PROTECT,
-        related_name='resource_type',
+        related_name='resource',
         verbose_name=_('resource type')
     )
 
@@ -74,7 +74,7 @@ class Resource(models.Model):
     localization = models.ForeignKey(
         Localization,
         on_delete=models.PROTECT,
-        related_name='localization',
+        related_name='resource',
     )
 
     capacity = models.PositiveSmallIntegerField()
@@ -82,6 +82,10 @@ class Resource(models.Model):
     creation_date = models.DateTimeField(
         auto_now_add=True,
     )
+
+    @property
+    def reservations(self):
+        return self.reservation.all()
 
     def __str__(self):
         return '%s (%s - %s p.)' % (

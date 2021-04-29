@@ -1,5 +1,5 @@
 <td>
-  {{ resource.pk }}
+  <a class="link-primary" href="{% url 'resource_detail' resource.pk %}">{{ resource.pk }}</a>
 </td>
 <td>
   {{ resource.label }}

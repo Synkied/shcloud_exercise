@@ -6,7 +6,7 @@ TODO :
 - Unit tests X
 - Filter resources by type and location X
 - Use Oauth
-- Dockerization
+- Dockerization X
 - Tornado (sockets)
 
 

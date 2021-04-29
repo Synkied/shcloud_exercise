@@ -21,8 +21,8 @@ class Reservation(models.Model):
     resource = models.ForeignKey(
         Resource,
         on_delete=models.PROTECT,
-        related_name='resource',
-        verbose_name=_('resource')
+        related_name='reservation',
+        verbose_name=_('reservation')
     )
 
     creator = models.ForeignKey(
