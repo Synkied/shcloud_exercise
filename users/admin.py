@@ -51,7 +51,7 @@ class UserChangeForm(forms.ModelForm):
 class UserAdmin(admin.ModelAdmin):
     form = UserChangeForm
     list_display = (
-        'email', 'name', 'is_active', 'is_admin',
+        'email', 'name', 'is_active', 'is_admin', 'timezone',
     )
     list_filter = ('is_admin', 'is_active')
     search_fields = ('email', 'name',)
@@ -71,7 +71,7 @@ class UserAdmin(admin.ModelAdmin):
                     )
                 }),
                 (_('Personal information'), {'fields': (
-                    'gender', 'name',)}),
+                    'gender', 'name', 'timezone')}),
             )
         else:
             return (
@@ -81,7 +81,7 @@ class UserAdmin(admin.ModelAdmin):
                     )
                 }),
                 (_('Personal information'), {'fields': (
-                    'gender', 'name',
+                    'gender', 'name', 'timezone',
                 )}),
             )
 

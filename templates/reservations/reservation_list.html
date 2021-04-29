@@ -63,10 +63,12 @@
         reservation.end = reservation.end_date
       })
 
+      console.log(reservations)
+
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'resourceTimeGridTwoDay',
-        timeZone: 'UTC',
+        timeZone: '{{ user.timezone }}',
         headerToolbar: {
           left: 'prev,next',
           center: 'title',

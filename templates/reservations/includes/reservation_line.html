@@ -1,7 +1,10 @@
 {% load i18n %}
+{% load tz %}
 
 <td>
-  {{ reservation.pk }}
+  <a class="link-primary" href="{% url 'reservation_detail' reservation.pk %}">
+    {{ reservation.pk }}
+  </a>
 </td>
 <td>
   {{ reservation.title }}
@@ -10,13 +13,19 @@
   {{ reservation.resource }}
 </td>
 <td>
-  {{ reservation.start_date }}
+  {% timezone user.timezone %}
+    {{ reservation.start_date }}
+  {% endtimezone %}
 </td>
 <td>
-  {{ reservation.end_date }}
+  {% timezone user.timezone %}
+    {{ reservation.end_date }}
+  {% endtimezone %}
 </td>
 <td data-bs-toggle="tooltip" data-bs-placement="top" title="{{ reservation.creation_date|timesince }}">
-  {{ reservation.creation_date }}
+  {% timezone user.timezone %}
+    {{ reservation.creation_date }}
+  {% endtimezone %}
 </td>
 <td>
   <a href="{% url 'reservation_edit' reservation.pk %}" class="btn btn-outline-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Edit" %}">

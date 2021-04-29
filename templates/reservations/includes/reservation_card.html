@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load tz %}
 
   <div class="card-header">
     <i class="bi bi-calendar-check"></i>
@@ -13,7 +14,9 @@
     </h5>
     <h6 class="card-subtitle mb-2 text-muted">
       <i class="bi bi-calendar-date"></i>
-      {{ reservation.start_date }} - {{ reservation.end_date }}
+      {% timezone user.timezone %}
+        {{ reservation.start_date }} - {{ reservation.end_date }}
+      {% endtimezone %}
     </h6>
     <p class="card-subtitle mb-2 text-muted">
       <i class="bi bi-person-square"></i>

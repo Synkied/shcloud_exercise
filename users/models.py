@@ -9,6 +9,8 @@ from django.core.exceptions import PermissionDenied
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from timezone_field import TimeZoneField
+
 import users.permissions.admin
 
 PERMISSION_BACKENDS = [
@@ -109,6 +111,7 @@ class User(AbstractBaseUser):
         default=MAN,
         choices=GENDERS,
     )
+    timezone = TimeZoneField(default='Europe/London')
     name = models.CharField(
         _('fullname'),
         max_length=255,
