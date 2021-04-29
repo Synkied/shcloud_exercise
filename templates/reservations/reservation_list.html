@@ -9,6 +9,7 @@
 
 {% block content %}
   <div class="card-header">
+    <i class="bi bi-calendar-check"></i>
     {% translate "Reservations" %}
   </div>
   <div class="card-body">
@@ -52,7 +53,7 @@
       let reservations = await getReservations()
 
       resources.map((resource, idx) => {
-        resource.id = idx + 1
+        resource.id = resource.pk
         resource.title = resource.label
       })
 
@@ -64,17 +65,17 @@
 
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'resourceTimeGridFourDay',
+        initialView: 'resourceTimeGridTwoDay',
         headerToolbar: {
           left: 'prev,next',
           center: 'title',
-          right: 'resourceTimeGridDay,resourceTimeGridFourDay'
+          right: 'resourceTimeGridDay,resourceTimeGridTwoDay'
         },
         views: {
-          resourceTimeGridFourDay: {
+          resourceTimeGridTwoDay: {
             type: 'resourceTimeGrid',
-            duration: { days: 4 },
-            buttonText: '4 days'
+            duration: { days: 2 },
+            buttonText: '2 days'
           }
         },
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
@@ -86,10 +87,8 @@
         eventClick: function(info) {
           let reservation_pk = info.event.extendedProps.pk
           url = '{% url "reservation_detail" 888 %}'
-
           // cheat to get to corresponding url
           document.location.href = url.replace('888', reservation_pk);
-
         }
       });
 

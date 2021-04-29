@@ -10,11 +10,22 @@
 
 {% block content %}
   <div class="card-header">
+    <i class="bi bi-door-open"></i>
     {{ reservation.title }}
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{ reservation.resource.label }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ reservation.start_date }} - {{ reservation.end_date }}</h6>
+    <h5 class="card-title">
+      <i class="bi bi-calendar-check"></i>
+      {{ reservation.resource }}
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <i class="bi bi-calendar-date"></i>
+      {{ reservation.start_date }} - {{ reservation.end_date }}
+    </h6>
+    <p class="card-subtitle mb-2 text-muted">
+      <i class="bi bi-person-square"></i>
+      {{ reservation.creator }}
+    </p>
     <a href="{% url 'reservation_edit' reservation.pk %}" class="btn btn-outline-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Edit" %}">
       <i class="bi bi-calendar-event"></i>
     </a>

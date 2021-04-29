@@ -1,4 +1,4 @@
-"""shcloud URL Configuration
+"""plan_heure URL Configuration
 """
 import debug_toolbar
 

@@ -81,11 +81,11 @@ msgstr "emplacements"
 msgid "resources"
 msgstr "ressources"
 
-#: shcloud/settings.py:153
+#: plan_heure/settings.py:153
 msgid "English"
 msgstr "Anglais"
 
-#: shcloud/settings.py:154
+#: plan_heure/settings.py:154
 msgid "French"
 msgstr "Français"
 

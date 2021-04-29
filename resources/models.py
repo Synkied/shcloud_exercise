@@ -15,7 +15,7 @@ class ResourceType(models.Model):
     )
 
     def __str__(self):
-        return 'ResourceType %s' % self.label
+        return '%s' % self.label
 
     class Meta:
         ordering = ['-creation_date']
@@ -47,7 +47,7 @@ class Localization(models.Model):
     )
 
     def __str__(self):
-        return 'Localization %s' % self.label
+        return '%s' % self.label
 
     class Meta:
         ordering = ['-creation_date']
@@ -84,7 +84,11 @@ class Resource(models.Model):
     )
 
     def __str__(self):
-        return 'Resource %s' % self.label
+        return '%s (%s - %s p.)' % (
+            self.label,
+            self.localization.label,
+            self.capacity
+        )
 
     class Meta:
         ordering = ['-creation_date']

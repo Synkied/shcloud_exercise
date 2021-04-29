@@ -14,6 +14,6 @@ WORKDIR /usr/src/app
 EXPOSE 8061
 
 # different settings from local dev
-ENV DJANGO_SETTINGS_MODULE=shcloud.settings.production
+ENV DJANGO_SETTINGS_MODULE=plan_heure.settings.production
 
-CMD [ "gunicorn", "shcloud.wsgi", "-b", "0.0.0.0:8061" ]
+CMD [ "gunicorn", "plan_heure.wsgi", "-b", "0.0.0.0:8061" ]
