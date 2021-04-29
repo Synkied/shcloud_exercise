@@ -1,5 +1,5 @@
-all: build up create_user_db collectstatic create_cache_table migrate_db
-all_no_cache: build_no_cache up collectstatic create_user_db create_cache_table migrate_db
+all: build up create_user_db collectstatic create_cache_table migrate_db import_data
+all_no_cache: build_no_cache up collectstatic create_user_db create_cache_table migrate_db import_data
 
 init:
 	pip install -r requirements.txt
@@ -14,7 +14,7 @@ migrate_db:
 	docker exec plan_heure_web /bin/sh -c 'python manage.py migrate'
 
 import_data:
-	docker exec plan_heure_web /bin/sh -c 'python manage.py import_data all'
+	docker exec plan_heure_web /bin/sh -c 'python manage.py add_datas all'
 
 cov_test:
 	coverage run manage.py test

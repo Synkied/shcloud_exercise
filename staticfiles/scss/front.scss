@@ -1,7 +1,19 @@
 @import "bootstrap/functions";
 @import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+$theme-colors: map-remove($theme-colors, "primary");
+$custom-colors: (
+  "primary": $indigo-400
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
 @import "bootstrap/bootstrap.scss";
+
+a {
+	text-decoration: none;
+}
 
 .navbar-breadcrumb {
 	padding: 0;

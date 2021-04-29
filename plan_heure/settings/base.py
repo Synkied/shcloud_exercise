@@ -120,6 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Social AUTH
 AUTH_USER_MODEL = 'users.User'

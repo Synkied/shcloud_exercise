@@ -9,6 +9,9 @@ from django.core.exceptions import PermissionDenied
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from plan_heure.constants import GENDERS
+from plan_heure.constants import MAN
+
 from timezone_field import TimeZoneField
 
 import users.permissions.admin
@@ -92,13 +95,6 @@ class User(AbstractBaseUser):
     """
     User model
     """
-    MAN = 'M'
-    WOMAN = 'W'
-    GENDERS = (
-        (MAN, _('Mr')),
-        (WOMAN, _('Mme')),
-    )
-
     email = models.EmailField(
         _('email address'),
         max_length=255,

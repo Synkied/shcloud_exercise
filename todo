@@ -5,8 +5,8 @@ TODO :
 - Caching X
 - Unit tests X
 - Filter resources by type and location X
-- Use Oauth
 - Dockerization X
+- Use Oauth
 - Tornado (sockets)
 
 

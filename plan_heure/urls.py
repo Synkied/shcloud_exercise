@@ -11,6 +11,8 @@ from django.urls import include
 from django.urls import path
 from django.views.generic import TemplateView
 
+from users.views.user import SignUpView
+
 
 class WelcomeView(LoginRequiredMixin, TemplateView):
     template_name = 'welcome.html'
@@ -24,6 +26,7 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('login/', LoginView.as_view(template_name='auth/login.html'),
          name='login'),
+    path('signup/', SignUpView.as_view(), name='signup'),
     path('logout/', logout_then_login, name='logout'),
     path('admin/', admin.site.urls),
 ]
