@@ -6,6 +6,6 @@ WOMAN = 'W'
 UNDEFINED = 'U'
 GENDERS = (
     (MAN, _('Mr')),
-    (WOMAN, _('Mme')),
-    (UNDEFINED, _('Non défini')),
+    (WOMAN, _('Ms.')),
+    (UNDEFINED, _('Undefined')),
 )
