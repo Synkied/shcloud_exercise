@@ -12,28 +12,38 @@
         </div>
       {% endif %}
       {% csrf_token %}
-        <div class="row">
-      {% for field in form %}
-        {% if field.name == 'localization' or field.name == 'resource_type' %}
-          <div class="col-6">
+      <div class="row">
+        {% for field in form %}
+          {% if field.name == 'localization' %}
+            <div class="col-12 mt-3">
+              <strong>{% translate 'Filter resources' %}</strong>
+            </div>
+            <div class="col-6 mb-3">
+              {{ field.errors }}
+              {{ field.label_tag }} {{ field }}
+              {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          {% elif field.name == 'resource_type' %}
+            <div class="col-6 mb-4">
+              {{ field.errors }}
+              {{ field.label_tag }} {{ field }}
+              {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          {% else %}
+          <div class="col-12">
             {{ field.errors }}
             {{ field.label_tag }} {{ field }}
             {% if field.help_text %}
               <p class="help">{{ field.help_text|safe }}</p>
             {% endif %}
           </div>
-
-        {% else %}
-        <div class="col-12">
-          {{ field.errors }}
-          {{ field.label_tag }} {{ field }}
-          {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
           {% endif %}
-        </div>
-        {% endif %}
-      {% endfor %}
-        </div>
+        {% endfor %}
+      </div>
       <br>
       <button type="submit" class="btn btn-primary">{% translate 'Submit' %}</button>
     </form>
@@ -94,7 +104,7 @@
       ]
       for (var i = resources.length - 1; i >= 0; i--) {
         console.log(resources[i])
-        let newOptionsHtml = `<option value=${resources[i].pk}>${resources[i].label}</option>`
+        let newOptionsHtml = `<option value=${resources[i].pk}>${resources[i].long_name}</option>`
         newOptions.push(newOptionsHtml)
       }
       resource_choice.innerHTML = newOptions;

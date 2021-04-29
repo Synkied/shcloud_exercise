@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-29 19:46+0000\n"
-"PO-Revision-Date: 2021-04-29 21:45+0200\n"
+"POT-Creation-Date: 2021-04-29 20:02+0000\n"
+"PO-Revision-Date: 2021-04-29 22:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1296,7 +1296,7 @@ msgstr "date de début"
 msgid "end date"
 msgstr "date de fin"
 
-#: reservations/models.py:30 resources/models.py:112
+#: reservations/models.py:30 resources/models.py:120
 msgid "resource"
 msgstr "ressource"
 
@@ -1369,7 +1369,7 @@ msgstr "emplacements"
 msgid "capacity"
 msgstr "capacité"
 
-#: resources/models.py:113
+#: resources/models.py:121
 msgid "resources"
 msgstr "ressources"
 
@@ -1388,8 +1388,8 @@ msgid "Please connect to see this page."
 msgstr "Veuillez vous connecter pour afficher cette page."
 
 #: templates/auth/login.html:32
-msgid "Username and password do not match."
-msgstr "Le nom d'utilisateur et le mot de passe ne correspondent pas."
+msgid "Email and password do not match."
+msgstr "L'addresse mail et le mot de passe ne correspondent pas."
 
 #: templates/auth/login.html:42
 msgid "Email"
@@ -1471,7 +1471,11 @@ msgstr "Date de création"
 msgid "Action"
 msgstr ""
 
-#: templates/reservations/reservation_create.html:38
+#: templates/reservations/reservation_create.html:19
+msgid "Filter resources"
+msgstr "Filtrer les ressources"
+
+#: templates/reservations/reservation_create.html:48
 msgid "Submit"
 msgstr ""
 

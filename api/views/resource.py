@@ -35,7 +35,7 @@ class ResourceSerializer(ModelSerializer):
     class Meta:
         model = Resource
         fields = (
-            'pk', 'label', 'resource_type',
+            'pk', 'long_name', 'label', 'resource_type',
             'localization', 'capacity'
         )
 

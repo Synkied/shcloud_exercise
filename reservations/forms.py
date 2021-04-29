@@ -29,8 +29,8 @@ class ReservationCreationForm(forms.ModelForm):
         model = Reservation
         fields = [
             'title',
-            'resource_type',
             'localization',
+            'resource_type',
             'resource',
             'start_date',
             'end_date',

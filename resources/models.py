@@ -100,6 +100,14 @@ class Resource(models.Model):
     def all_reservations(self):
         return self.reservations.all()
 
+    @property
+    def long_name(self):
+        return '%s (%s - %s p.)' % (
+            self.label,
+            self.localization.label,
+            self.capacity
+        )
+
     def __str__(self):
         return '%s (%s - %s p.)' % (
             self.label,

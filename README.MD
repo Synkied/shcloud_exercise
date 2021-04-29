@@ -20,4 +20,4 @@ Then proceed to project installation:
 `python manage.py test`
 
 # Use application
-Go to localhost:8061
+Go to http://localhost:8061
