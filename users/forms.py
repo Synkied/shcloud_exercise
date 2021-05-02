@@ -10,9 +10,12 @@ from users.models import User
 
 
 class SignUpForm(UserCreationForm):
+    """
+    Simple sign up form.
+    """
     def __init__(self, *args, **kwargs):
         """
-        Add default css-class to display bootstrap style form.
+        Add default CSS-class to display Bootstrap style form.
         """
         super(SignUpForm, self).__init__(*args, **kwargs)
         for field in self.visible_fields():

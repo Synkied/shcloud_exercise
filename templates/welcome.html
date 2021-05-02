@@ -7,10 +7,10 @@
     {% translate "Latest events" %}
   </div>
   <div class="card-body">
-    <p>{% translate "Latest resources registered" %}</p>
+    <h5>{% translate "Latest resources registered" %}</h5>
       {% latest_resources %}
 
-    <p>{% translate "Latest reservations" %}</p>
+    <h5 class="mt-5"> {% translate "Latest reservations" %}</h5>
       {% latest_reservations %}
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">

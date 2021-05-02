@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load static %}
 {% load sass_tags %}
+{% load tz %}
 
 <!DOCTYPE html>
 <html>
@@ -101,7 +102,61 @@
       </div>
     {% endblock body %}
   </div>
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Plan'heure</h5>
+        <p>
+          {% translate 'Your go to online reservation service.' %}
+        </p>
+        <p>
+          {% translate 'Timezone' %}
+          <small>
+            {% get_current_timezone as TIME_ZONE %}
+            {{ TIME_ZONE }}
+          </small>
+        </p>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">{% translate 'Links' %}</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="{% url 'reservation_list' %}" class="text-dark">{% translate 'Reservations' %}</a>
+          </li>
+          <li>
+            <a href="{% url 'resource_list' %}" class="text-dark">{% translate 'Resources' %}</a>
+          </li>
+        </ul>
+      </div>
+
+      {% if user.is_admin %}
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">{% translate 'Admin links' %}</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="{% url 'admin:index' %}" class="text-dark">Admin</a>
+          </li>
+          <li>
+            <a href="/api/" class="text-dark">API</a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+</footer>
 </body>
+
 
 {% block javascript %}
 {% endblock %}

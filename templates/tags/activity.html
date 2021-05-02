@@ -1,18 +1,18 @@
 {% load dashboard %}
+{% load i18n %}
 
-  <ul>
+<div class="row">
   {% for resource in resources %}
-    <li>
-      {{ resource }}
-    </li>
+    <div class="col-3">
+      {% include 'resources/includes/resource_card.html' %}
+    </div>
   {% endfor %}
-</ul>
+</div>
 
-<ul>
+<div class="row">
   {% for reservation in reservations %}
-    <li>
-      {{ reservation }}
-    </li>
+    <div class="col-4">
+    {% include 'reservations/includes/reservation_card.html' %}
+    </div>
   {% endfor %}
-
-</ul>
+</div>

@@ -9,7 +9,7 @@ from resources.models import ResourceType
 class ReservationCreationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         """
-        Add default css-class to display bootstrap style form.
+        Add default CSS-class to display Bootstrap style form.
         """
         super(ReservationCreationForm, self).__init__(*args, **kwargs)
         for field in self.visible_fields():

@@ -9,37 +9,22 @@
 {% endblock breadcrumbs %}
 
 {% block content %}
-  <div class="card-header">
-    <i class="bi bi-door-open"></i>
-    {{ resource }}
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">
-      <i class="bi bi-back"></i>
-      {{ resource.resource_type.label }}
-    </h5>
-    <h6 class="card-subtitle mb-2 text-muted">
-      <i class="bi bi-map"></i>
-      {{ resource.localization.label }} - {% translate 'floor:' %} {{ resource.localization.floor }} - ({{ resource.localization.latitude }} / {{ resource.localization.longitude }})
-    </h6>
-    <p class="card-subtitle mb-2 text-muted">
-      <i class="bi bi-people-fill"></i>
-      {% translate 'Capacity:' %} {{ resource.capacity }}
-    </p>
-      <hr class="my-4">
+    {% include 'resources/includes/resource_card.html' %}
+    <hr class="my-4">
 
-    <h5 class="card-subtitle mb-2 text-muted my-4 ">
-      <p>
-        <i class="bi bi-calendar-check"></i>
-        {% translate 'Reservations' %}
-      </p>
-    </h5>
-    <div class="row">
-      {% for reservation in resource.all_reservations %}
-      <div class="col-4">
-        {% include 'reservations/includes/reservation_card.html' %}
+    <div class="card-body">
+      <h5 class="card-subtitle mb-2 text-muted">
+        <p>
+          <i class="bi bi-calendar-check"></i>
+          {% translate 'Reservations' %}
+        </p>
+      </h5>
+      <div class="row">
+        {% for reservation in resource.all_reservations %}
+        <div class="col-4">
+          {% include 'reservations/includes/reservation_card.html' %}
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
-  </div>
 {% endblock content %}

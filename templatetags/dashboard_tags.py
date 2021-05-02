@@ -10,17 +10,20 @@ register = template.Library()
 @register.inclusion_tag('tags/activity.html', takes_context=True)
 def latest_reservations(context):
     user = context['user']
-    reservations = Reservation.objects.filter(creator_id=user.pk)
+    reservations = Reservation.objects.filter(creator_id=user.pk)[:8]
 
     return {
-        'reservations': reservations
+        'reservations': reservations,
+        'user': user,
     }
 
 
 @register.inclusion_tag('tags/activity.html', takes_context=True)
 def latest_resources(context):
-    resources = Resource.objects.all()
+    user = context['user']
+    resources = Resource.objects.all()[:8]
 
     return {
-        'resources': resources
+        'resources': resources,
+        'user': user,
     }

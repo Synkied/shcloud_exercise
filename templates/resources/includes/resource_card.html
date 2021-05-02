@@ -1,0 +1,23 @@
+{% load i18n %}
+
+
+<div class="card-header">
+  <a class="link-secondary" href="{% url 'resource_detail' resource.pk %}">
+    <i class="bi bi-door-open"></i>
+    {{ resource }}
+  </a>
+</div>
+<div class="card-body">
+  <h5 class="card-title">
+    <i class="bi bi-back"></i>
+    {{ resource.resource_type.label }}
+  </h5>
+  <h6 class="card-subtitle mb-2 text-muted">
+    <i class="bi bi-map"></i>
+    {{ resource.localization.label }} - {% translate 'floor:' %} {{ resource.localization.floor }} - ({{ resource.localization.latitude }} / {{ resource.localization.longitude }})
+  </h6>
+  <p class="card-subtitle text-muted">
+    <i class="bi bi-people-fill"></i>
+    {% translate 'Capacity:' %} {{ resource.capacity }}
+  </p>
+</div>
