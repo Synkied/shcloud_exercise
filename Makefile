@@ -20,7 +20,7 @@ cov_test:
 	coverage run --omit=./lib/* manage.py test
 
 cov_report:
-	coverage --omit=./lib/* report
+	coverage report
 
 build:
 	docker-compose build
