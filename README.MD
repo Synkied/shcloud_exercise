@@ -16,8 +16,11 @@ Then create a network proxy:
 Then proceed to project installation:
 `make`
 
+## Add fake datas
+`make import_data`
+
 # Tests
-`python manage.py test`
+`make cov_test`
 
 # Use application
 Go to http://localhost:8061
