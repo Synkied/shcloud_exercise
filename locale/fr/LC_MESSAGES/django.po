@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-29 20:02+0000\n"
-"PO-Revision-Date: 2021-04-29 22:02+0200\n"
+"POT-Creation-Date: 2021-05-02 15:59+0000\n"
+"PO-Revision-Date: 2021-05-02 18:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1276,11 +1276,11 @@ msgstr "Mme"
 msgid "Undefined"
 msgstr "Non défini"
 
-#: plan_heure/settings/base.py:158
+#: plan_heure/settings/base.py:159
 msgid "English"
 msgstr "Anglais"
 
-#: plan_heure/settings/base.py:159
+#: plan_heure/settings/base.py:160
 msgid "French"
 msgstr "Français"
 
@@ -1358,11 +1358,11 @@ msgid "floor"
 msgstr "étage"
 
 #: resources/models.py:62 resources/models.py:87
-msgid "localization"
+msgid "location"
 msgstr "emplacement"
 
 #: resources/models.py:63
-msgid "localizations"
+msgid "locations"
 msgstr "emplacements"
 
 #: resources/models.py:91
@@ -1375,7 +1375,6 @@ msgstr "ressources"
 
 #: templates/auth/login.html:4 templates/auth/login.html:8
 #: templates/auth/login.html:16 templates/auth/login.html:53
-#: templates/auth/register.html:4
 msgid "Connection"
 msgstr "Connexion"
 
@@ -1399,7 +1398,8 @@ msgstr "Courriel"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: templates/auth/login.html:56 templates/auth/register.html:8
+#: templates/auth/login.html:56 templates/auth/register.html:4
+#: templates/auth/register.html:8
 msgid "Register"
 msgstr "S'enregistrer"
 
@@ -1471,31 +1471,40 @@ msgstr "Date de création"
 msgid "Action"
 msgstr ""
 
-#: templates/reservations/reservation_create.html:19
+#: templates/reservations/reservation_create.html:20
 msgid "Filter resources"
 msgstr "Filtrer les ressources"
 
-#: templates/reservations/reservation_create.html:48
+#: templates/reservations/reservation_create.html:49
 msgid "Submit"
 msgstr ""
 
 #: templates/reservations/reservation_detail.html:6
-#: templates/reservations/reservation_list.html:6
-#: templates/reservations/reservation_list.html:13
-#: templates/resources/resource_detail.html:34 templates/skeleton.html:30
+#: templates/reservations/reservation_list.html:8
+#: templates/reservations/reservation_list.html:15
+#: templates/resources/resource_detail.html:19 templates/skeleton.html:31
+#: templates/skeleton.html:127
 msgid "Reservations"
 msgstr "Réservations"
 
-#: templates/reservations/reservation_list.html:18 templates/welcome.html:18
+#: templates/reservations/reservation_list.html:20 templates/welcome.html:18
 msgid "New reservation"
 msgstr "Nouvelle réservation"
+
+#: templates/resources/includes/resource_card.html:17
+msgid "floor:"
+msgstr "étage :"
+
+#: templates/resources/includes/resource_card.html:21
+msgid "Capacity:"
+msgstr "Capacité."
 
 #: templates/resources/includes/resource_table.html:7
 msgid "Label"
 msgstr "Libellé"
 
 #: templates/resources/includes/resource_table.html:8
-msgid "Localization"
+msgid "Location"
 msgstr "Emplacement"
 
 #: templates/resources/includes/resource_table.html:9
@@ -1503,30 +1512,39 @@ msgid "Capacity"
 msgstr "Capacité"
 
 #: templates/resources/resource_detail.html:6
-#: templates/resources/resource_list.html:6
-#: templates/resources/resource_list.html:14 templates/skeleton.html:33
+#: templates/resources/resource_list.html:7
+#: templates/resources/resource_list.html:15 templates/skeleton.html:34
+#: templates/skeleton.html:130
 msgid "Resources"
 msgstr "Ressources"
 
-#: templates/resources/resource_detail.html:23
-msgid "floor:"
-msgstr "étage :"
-
-#: templates/resources/resource_detail.html:27
-msgid "Capacity:"
-msgstr "Capacité."
-
-#: templates/resources/resource_list.html:20
+#: templates/resources/resource_list.html:21
 msgid "New resource"
 msgstr "Nouvelle ressource"
 
-#: templates/skeleton.html:37
+#: templates/skeleton.html:38
 msgid "Admin"
 msgstr "Administrateur"
 
-#: templates/skeleton.html:40
+#: templates/skeleton.html:41
 msgid "API"
 msgstr ""
+
+#: templates/skeleton.html:111
+msgid "Your go to online reservation service."
+msgstr ""
+
+#: templates/skeleton.html:114
+msgid "Timezone"
+msgstr ""
+
+#: templates/skeleton.html:123
+msgid "Links"
+msgstr ""
+
+#: templates/skeleton.html:137
+msgid "Admin links"
+msgstr "Liens administrateur"
 
 #: templates/welcome.html:7
 msgid "Latest events"
@@ -1552,11 +1570,11 @@ msgstr "Balises"
 msgid "Personal information"
 msgstr "Information personnelle"
 
-#: users/forms.py:24
+#: users/forms.py:27
 msgid "Optional."
 msgstr "Optionnel."
 
-#: users/forms.py:28
+#: users/forms.py:31
 msgid "Required. Enter a valid email address."
 msgstr "Requis. Veuillez renseigner une adresse mail valide."
 
@@ -1591,6 +1609,10 @@ msgstr ""
 #: users/models.py:138
 msgid "Enabled"
 msgstr "Activé"
+
+#: users/views/user.py:16
+msgid "Your profile was created successfully"
+msgstr ""
 
 #~ msgid "M."
 #~ msgstr "M."
