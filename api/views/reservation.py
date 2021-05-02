@@ -1,6 +1,9 @@
 """
 Reservation viewset for api
 """
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+
 from django_filters import rest_framework as filters
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 
@@ -57,7 +60,7 @@ class ReservationViewSet(ReadOnlyModelViewSet):
     )
     pagination_class = ReservationResultsSetPagination
 
-    # @method_decorator(cache_page(60*2))
+    @method_decorator(cache_page(60*2))
     def list(self, *args, **kwargs):
         """
         Returns a list of user's reservations.
