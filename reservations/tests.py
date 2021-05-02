@@ -7,7 +7,7 @@ import pytz
 
 from reservations.models import Reservation
 
-from resources.models import Localization
+from resources.models import Location
 from resources.models import Resource
 from resources.models import ResourceType
 
@@ -22,12 +22,12 @@ class ReservationTestCase(TestCase):
             name='The Creator',
         )
 
-        localization = Localization()
-        localization.label = 'B22'
-        localization.latitude = 48.856614
-        localization.longitude = 2.3522219
-        localization.floor = 1
-        localization.save()
+        location = Location()
+        location.label = 'B22'
+        location.latitude = 48.856614
+        location.longitude = 2.3522219
+        location.floor = 1
+        location.save()
 
         resource_type = ResourceType()
         resource_type.label = 'salle de conférence'
@@ -36,7 +36,7 @@ class ReservationTestCase(TestCase):
         self.resource_one = Resource()
         self.resource_one.resource_type = resource_type
         self.resource_one.label = 'Salle de conférence XT'
-        self.resource_one.localization = localization
+        self.resource_one.location = location
         self.resource_one.capacity = 100
         self.resource_one.save()
 

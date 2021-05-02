@@ -2,7 +2,7 @@ from django import forms
 
 from reservations.models import Reservation
 
-from resources.models import Localization
+from resources.models import Location
 from resources.models import ResourceType
 
 
@@ -16,8 +16,8 @@ class ReservationCreationForm(forms.ModelForm):
             field.field.widget.attrs['class'] = 'form-control'
 
     # custom fields
-    localization = forms.ModelChoiceField(
-        queryset=Localization.objects.all(),
+    location = forms.ModelChoiceField(
+        queryset=Location.objects.all(),
         required=False,
     )
     resource_type = forms.ModelChoiceField(
@@ -29,7 +29,7 @@ class ReservationCreationForm(forms.ModelForm):
         model = Reservation
         fields = [
             'title',
-            'localization',
+            'location',
             'resource_type',
             'resource',
             'start_date',

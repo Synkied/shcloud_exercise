@@ -15,7 +15,7 @@
       {% csrf_token %}
       <div class="row">
         {% for field in form %}
-          {% if field.name == 'localization' %}
+          {% if field.name == 'location' %}
             <div class="col-12 mt-3">
               <strong>{% translate 'Filter resources' %}</strong>
             </div>

@@ -10,12 +10,13 @@ class TimezoneMiddleware:
         # Code to be executed for each request before
         # the view (and later middleware) are called.
 
-        user_timezone = request.user.timezone
+        if hasattr(request.user, 'timezone'):
+            user_timezone = request.user.timezone
 
-        if user_timezone:
-            timezone.activate(user_timezone)
-        else:
-            timezone.deactivate()
+            if user_timezone:
+                timezone.activate(user_timezone)
+            else:
+                timezone.deactivate()
 
         response = self.get_response(request)
 

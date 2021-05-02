@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from resources.models import Localization
+from resources.models import Location
 from resources.models import Resource
 from resources.models import ResourceType
 
 
-@admin.register(Localization)
-class LocalizationAdmin(admin.ModelAdmin):
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
     empty_value_display = '-'
 
 

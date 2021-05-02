@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='resource',
-            name='localization',
+            name='location',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.PROTECT,
                 related_name='resource',
-                to='resources.localization'
+                to='resources.location'
             ),
         ),
         migrations.AlterField(

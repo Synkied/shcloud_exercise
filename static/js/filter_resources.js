@@ -1,4 +1,4 @@
-// Filtering resources by resource type and localization
+// Filtering resources by resource type and location
 
 let resource_choice = document.getElementById('id_resource')
 let resources = document.getElementById('id_resource').options
@@ -24,16 +24,16 @@ async function getResources(filters) {
   }
 }
 
-let localization_choice = document.getElementById("id_localization")
+let location_choice = document.getElementById("id_location")
 let resource_type_choice = document.getElementById("id_resource_type")
 
 let filters = {
-  'localization': localization_choice.value,
+  'location': location_choice.value,
   'resource_type': resource_type_choice.value
 }
 
-localization_choice.addEventListener("change", async function () {
-  filters['localization'] = localization_choice.value
+location_choice.addEventListener("change", async function () {
+  filters['location'] = location_choice.value
   resources = await getResources(filters)
   buildOptions(resources)
 })

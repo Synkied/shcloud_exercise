@@ -11,7 +11,7 @@ import requests
 
 from reservations.models import Reservation
 
-from resources.models import Localization
+from resources.models import Location
 from resources.models import Resource
 from resources.models import ResourceType
 
@@ -66,7 +66,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.WARNING('Deleting all resources...'))
         Resource.objects.all().delete()
         ResourceType.objects.all().delete()
-        Localization.objects.all().delete()
+        Location.objects.all().delete()
         self.stdout.write(self.style.SUCCESS('All resources deleted!'))
 
     def import_users(self):
@@ -88,8 +88,8 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('%s users created!') % str(i + 1))
 
     def import_resources(self):
-        # Create Localizations
-        self.stdout.write(self.style.WARNING('Creating some localizations...'))
+        # Create Locations
+        self.stdout.write(self.style.WARNING('Creating some locations...'))
         for i in range(randrange(5, 10)):
             label = self.random_label_generator(1)
 
@@ -98,16 +98,16 @@ class Command(BaseCommand):
 
             floor = randrange(60)
 
-            localization = Localization()
-            localization.label = label
-            localization.latitude = latitude
-            localization.longitude = longitude
-            localization.floor = floor
+            location = Location()
+            location.label = label
+            location.latitude = latitude
+            location.longitude = longitude
+            location.floor = floor
 
-            localization.save()
+            location.save()
 
         self.stdout.write(
-            self.style.SUCCESS('%s localizations created!' % str(i + 1))
+            self.style.SUCCESS('%s locations created!' % str(i + 1))
         )
 
         # Create Resource Types
@@ -132,12 +132,12 @@ class Command(BaseCommand):
             capacity = randrange(1000)
 
             resource_type = ResourceType.objects.order_by('?')[0]
-            localization = Localization.objects.order_by('?')[0]
+            location = Location.objects.order_by('?')[0]
 
             resource = Resource()
             resource.resource_type = resource_type
             resource.label = label
-            resource.localization = localization
+            resource.location = location
             resource.capacity = capacity
             resource.save()
 

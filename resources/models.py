@@ -26,9 +26,9 @@ class ResourceType(models.Model):
         db_table = 'core_resourcetype'
 
 
-class Localization(models.Model):
+class Location(models.Model):
     """
-    A Localization model.
+    A Location model.
     """
     label = models.CharField(
         _('label'),
@@ -59,9 +59,9 @@ class Localization(models.Model):
 
     class Meta:
         ordering = ['-creation_date']
-        verbose_name = _('localization')
-        verbose_name_plural = _('localizations')
-        db_table = 'core_localization'
+        verbose_name = _('location')
+        verbose_name_plural = _('locations')
+        db_table = 'core_location'
 
 
 class Resource(models.Model):
@@ -80,11 +80,11 @@ class Resource(models.Model):
         max_length=64,
     )
 
-    localization = models.ForeignKey(
-        Localization,
+    location = models.ForeignKey(
+        Location,
         on_delete=models.PROTECT,
         related_name='resource',
-        verbose_name=_('localization')
+        verbose_name=_('location')
     )
 
     capacity = models.PositiveSmallIntegerField(
@@ -104,14 +104,14 @@ class Resource(models.Model):
     def long_name(self):
         return '%s (%s - %s p.)' % (
             self.label,
-            self.localization.label,
+            self.location.label,
             self.capacity
         )
 
     def __str__(self):
         return '%s (%s - %s p.)' % (
             self.label,
-            self.localization.label,
+            self.location.label,
             self.capacity
         )
 

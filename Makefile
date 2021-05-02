@@ -17,10 +17,10 @@ import_data:
 	docker exec plan_heure_web /bin/sh -c 'python manage.py add_datas all'
 
 cov_test:
-	coverage run manage.py test --omit=./lib/*
+	coverage run --omit=./lib/* manage.py test
 
 cov_report:
-	coverage report --omit=./lib/*
+	coverage --omit=./lib/* report
 
 build:
 	docker-compose build

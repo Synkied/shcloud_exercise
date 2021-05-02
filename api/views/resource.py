@@ -36,7 +36,7 @@ class ResourceSerializer(ModelSerializer):
         model = Resource
         fields = (
             'pk', 'long_name', 'label', 'resource_type',
-            'localization', 'capacity'
+            'location', 'capacity'
         )
 
 
@@ -48,7 +48,7 @@ class ResourceViewSet(ReadOnlyModelViewSet):
     ordering_fields = ('creation_date', )
     search_fields = (
         'title', 'start_date', 'end_date',
-        'resource_type', 'localization',
+        'resource_type', 'location',
     )
     pagination_class = ResourceResultsSetPagination
 
