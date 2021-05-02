@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from reservations.models import Reservation
 
@@ -40,7 +41,7 @@ class ReservationCreationForm(forms.ModelForm):
                 format=('%m/%d/%Y %H:%M'),
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Select a date and time',
+                    'placeholder': _('Select a date and time'),
                     'type': 'datetime-local'
                 }
             ),
@@ -48,7 +49,7 @@ class ReservationCreationForm(forms.ModelForm):
                 format=('%m/%d/%Y %H:%M'),
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Select a date and time',
+                    'placeholder': _('Select a date and time'),
                     'type': 'datetime-local'
                 }
             ),

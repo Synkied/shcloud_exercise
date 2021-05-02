@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-02 15:59+0000\n"
-"PO-Revision-Date: 2021-05-02 18:00+0200\n"
+"POT-Creation-Date: 2021-05-02 18:45+0000\n"
+"PO-Revision-Date: 2021-05-02 20:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1284,6 +1284,10 @@ msgstr "Anglais"
 msgid "French"
 msgstr "Français"
 
+#: reservations/forms.py:44 reservations/forms.py:52
+msgid "Select a date and time"
+msgstr "Sélectionnez une date et une heure"
+
 #: reservations/models.py:16
 msgid "title"
 msgstr "titre"
@@ -1477,7 +1481,7 @@ msgstr "Filtrer les ressources"
 
 #: templates/reservations/reservation_create.html:49
 msgid "Submit"
-msgstr ""
+msgstr "Envoyer"
 
 #: templates/reservations/reservation_detail.html:6
 #: templates/reservations/reservation_list.html:8
@@ -1532,15 +1536,15 @@ msgstr ""
 
 #: templates/skeleton.html:111
 msgid "Your go to online reservation service."
-msgstr ""
+msgstr "Votre meilleur outil de réservation en ligne."
 
 #: templates/skeleton.html:114
 msgid "Timezone"
-msgstr ""
+msgstr "Fuseaux horaires"
 
 #: templates/skeleton.html:123
 msgid "Links"
-msgstr ""
+msgstr "Liens"
 
 #: templates/skeleton.html:137
 msgid "Admin links"
