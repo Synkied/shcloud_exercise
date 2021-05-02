@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load pagination %}
 
 {% block breadcrumbs %}
 <li class="breadcrumb-item active" aria-current="page">
@@ -23,6 +24,15 @@
       </div>
     {% endif %}
 
+    {% if page_obj %}
+      {% pagination page_obj 3 3 %}
+    {% endif %}
+
     {% include 'resources/includes/resource_table.html' %}
+
+    {% if page_obj %}
+      {% pagination page_obj 3 3 %}
+    {% endif %}
+
   </div>
 {% endblock %}

@@ -1,66 +1,72 @@
 {% load i18n %}
 
-<ul class="pagination">
-  <li class="page previous">
-    {% if page.has_previous %}
-      <a href="?page={{ page.previous_page_number }}{{ GET_string }}">
-        <i class="material-icons">chevron_left</i>
-      </a>
-    {% else %}
-      <a class="disabled">
-        <i class="material-icons">chevron_left</i>
-      </a>
-    {% endif %}
-  </li>
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-sm justify-content-end">
+      {% if page.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page.previous_page_number }}{{ GET_string }}">
+          <i class="bi bi-arrow-left"></i>
+        </a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link">
+          <i class="bi bi-arrow-left"></i>
+        </a>
+      </li>
+      {% endif %}
 
-  {% for page_number in begin %}
-    <li class="page{% ifequal page.number page_number %} active blue{% endifequal %}">
-      <a href="?page={{ page_number }}{{ GET_string }}">
-        {{ page_number }}
-      </a>
-    </li>
-  {% endfor %}
-
-  {% if middle %}
-    <li class="ellipsis">
-      <a class="disabled">
-        &hellip;
-      </a>
-    </li>
-    {% for page_number in middle %}
-      <li class="page{% ifequal page.number page_number %} active blue{% endifequal %}">
-        <a href="?page={{ page_number }}{{ GET_string }}">
+    {% for page_number in begin %}
+      <li class="page-item {% ifequal page.number page_number %} active blue{% endifequal %}">
+        <a class="page-link" href="?page={{ page_number }}{{ GET_string }}">
           {{ page_number }}
         </a>
       </li>
     {% endfor %}
-  {% endif %}
 
-  {% if end %}
-    <li class="ellipsis">
-      <a class="disabled">
-        &hellip;
-      </a>
-    </li>
-    {% for page_number in end %}
-      <li class="page{% ifequal page.number page_number %} active blue{% endifequal %}">
-        <a href="?page={{ page_number }}{{ GET_string }}">
-          {{ page_number }}
+    {% if middle %}
+      <li class="ellipsis">
+        <a class="disabled">
+          &hellip;
         </a>
       </li>
-    {% endfor %}
-  {% endif %}
-
-
-  <li class="page next">
-    {% if page.has_next %}
-      <a href="?page={{ page.next_page_number }}{{ GET_string }}">
-        <i class="material-icons">chevron_right</i>
-      </a>
-    {% else %}
-      <a class="disabled">
-        <i class="material-icons">chevron_right</i>
-      </a>
+      {% for page_number in middle %}
+        <li class="page-item {% ifequal page.number page_number %} active blue{% endifequal %}">
+          <a class="page-link" href="?page={{ page_number }}{{ GET_string }}">
+            {{ page_number }}
+          </a>
+        </li>
+      {% endfor %}
     {% endif %}
-  </li>
-</ul>
+
+    {% if end %}
+      <li class="ellipsis">
+        <a class="disabled">
+          &hellip;
+        </a>
+      </li>
+      {% for page_number in end %}
+        <li class="page-item {% ifequal page.number page_number %} active blue{% endifequal %}">
+          <a class="page-link" href="?page={{ page_number }}{{ GET_string }}">
+            {{ page_number }}
+          </a>
+        </li>
+      {% endfor %}
+    {% endif %}
+
+
+      {% if page.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page.next_page_number }}{{ GET_string }}">
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link">
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </li>
+      {% endif %}
+  </ul>
+</nav>

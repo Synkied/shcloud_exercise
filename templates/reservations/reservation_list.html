@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load pagination %}
 {% load static %}
 
 {% block breadcrumbs %}
@@ -20,10 +21,20 @@
         <i class="bi bi-plus-circle"></i>
       </a>
     </div>
-    <div id="calendar"></div>
+    <div class="mb-3" id="calendar"></div>
+
+    {% if page_obj %}
+      {% pagination page_obj 3 3 %}
+    {% endif %}
 
     {% include 'reservations/includes/reservation_table.html' %}
+
+    {% if page_obj %}
+      {% pagination page_obj 3 3 %}
+    {% endif %}
   </div>
+
+
 {% endblock %}
 
 {% block javascript %}
