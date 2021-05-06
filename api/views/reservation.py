@@ -26,8 +26,12 @@ class ReservationFilter(FilterSet):
     # set a filterset to use filters
     # you can use: http://django-filter.readthedocs.io/en/latest/guide/rest_framework.html#using-the-filter-fields-shortcut  # noqa
     # but it won't let you use "exclude"
-    insensitive_name = filters.CharFilter(
-        field_name="name",
+    iname = filters.CharFilter(
+        field_name="title",
+        lookup_expr='icontains'
+    )
+    creator_name = filters.CharFilter(
+        field_name="creator__name",
         lookup_expr='icontains'
     )
 
@@ -56,7 +60,7 @@ class ReservationViewSet(ReadOnlyModelViewSet):
     filter_class = ReservationFilter
     ordering_fields = ('creation_date', )
     search_fields = (
-        'pk', 'title', 'start_date', 'end_date', 'creator_id', 'creator_name'
+        'pk', 'title', 'start_date', 'end_date', 'creator',
     )
     pagination_class = ReservationResultsSetPagination
 
